@@ -3,14 +3,14 @@ const { db, users } = require('../db/loginTable');
 
 route.get('/', async(req, res) => {
 
-        console.log(req.session.userId);
+        //console.log(req.session.userId);
         if (!(req.session.userId)) {
             res.redirect('login.html');
         }
         //console.log(req.session.id);
         let user = await users.findByPk(req.session.userId);
-        console.log(user);
-        res.render('profile', { user })
+        //console.log(user);
+        res.send(user);
     })
     // route.post('/', async(req, res) => {
     //     // if (!req.body.username) {
