@@ -1,19 +1,57 @@
 $(() => {
+    //let a = 0;
     let navbar = $('#i2');
     $.get('/login/done', (data) => {
         console.log(data);
-        navbar.append(`<form id="profile" class="form-inline my-2 my-lg-0" >
-        <button class="btn btn-secondary">${data.username}</button>
-    </form>`)
+        navbar.append(`
+        <form class="form-inline my-2 my-lg-0" method="GET" action="/profile">
+        <button type="submit" class="btn btn-secondary form-inline my-2 my-lg-0">${data.username}</button>
+        `)
+            //addPage();
     })
-})
-$(() => {
-    let idpro = $('#profile');
-    let profile;
-    idpro.click(() => {
-        $.get('/profile', (data) => {
-            //console.log(yuhhh);
-            $('#divAdd').prepend($("p").prepend("Some prepended text."));
-        })
-    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // function addPage() {
+    //     let divAdd = $('#divAdd')
+    //     let profile = $('#profile')
+    //     profile.click(() => {
+    //         $.get('/profile');
+    //         // if (a == 0) {
+    //         //     $.get('/profile', (user) => {
+    //         //         console.log(user);
+    //         //         a = 1;
+    //         //         divAdd.append(`<table cellspacing="10" cellpadding="10" border="2">
+    //         //     <tr>
+    //         //         <th>UserID </th>
+    //         //         <td>${user.id}</td>
+    //         //     </tr>
+    //         //     <tr>
+    //         //         <th>USERNAME</th>
+    //         //         <td>${user.username}</td>
+    //         //     </tr>
+    //         //     <tr>
+    //         //         <th>NICKNAME</th>
+    //         //         <td>${user.nickname}</td>
+    //         //     </tr>
+
+    //         // </table>`)
+    //         //     })
+    //         // }
+    //     })
+    // }
 })
