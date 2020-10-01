@@ -17,9 +17,11 @@ app.use(session({
 const route1 = require('./routes/login').route;
 const route2 = require('./routes/signup').route;
 const route3 = require('./routes/profile').route;
+const route4 = require('./routes/posts').route;
 app.use('/login', route1);
 app.use('/signup', route2);
 app.use('/profile', route3);
+app.use('/posts', route4);
 app.use('/', express.static(__dirname + '/public'));
 db.sync()
     .then(() => {

@@ -9,11 +9,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-
 </head>
 
 <body>
-    <h1 style="text-align: center; background-color: rgb(255, 166, 0);">SIGNUP</h1>
+    <h1 style="text-align: center; background-color: rgb(255, 166, 0);">WRITE POST</h1>
     <!-- <form action="/signup" method="post">
         <input name="username" placeholder="Write username here">
         <input name="nickname" placeholder="Write nickname here">
@@ -21,21 +20,18 @@
         <button type="submit">SUBMIT</button>
 
     </form> -->
-    <form action="/signup" method="POST">
+    <form style="margin-left: 50px; margin-right: 50px; background-color: #cdf3ff;" action="/posts/add" method="POST">
         <div class="form-group">
-            <label style="margin-left: 1em;">NICKNAME</label>
-            <input name="nickname" class="form-control" placeholder="Your Nickname">
+            <label style="margin-left: 1em;">Title</label>
+            <input name="title" class="form-control" placeholder="Title of the post">
 
         </div>
         <div class="form-group">
-            <label style="margin-left: 1em;">USERNAME</label>
-            <input name="username" class="form-control" placeholder="Write username here">
-            <small id="emailHelp" style="margin-left: 1em;" class="form-text text-muted">We'll never share your username with anyone else.</small>
+            <label style="margin-left: 1em;">Body</label>
+            <input name="bod" class="form-control" placeholder="Body of the post">
+            <!-- <small id="emailHelp" style="margin-left: 1em;" class="form-text text-muted">We'll never share your username with anyone else.</small> -->
         </div>
-        <div class="form-group">
-            <label style="margin-left: 1em;" for="exampleInputPassword1">PASSWORD</label>
-            <input name="password" placeholder="Password" type="password" class="form-control" id="exampleInputPassword1">
-        </div>
+
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
