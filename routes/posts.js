@@ -14,10 +14,15 @@ route.post('/add', async(req, res) => {
         body: req.body.bod,
         userId: req.session.userId
     })
-    res.send(post);
+    res.redirect('/loggedin.html');
 })
 
-
+route.get('/getall', async(req, res) => {
+    let p = await posts.findAll({
+        include: [users]
+    });
+    res.send(p);
+})
 
 module.exports = {
     route
