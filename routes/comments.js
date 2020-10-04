@@ -48,6 +48,15 @@ route.post('/add', async(req, res) => {
     req.session.postId = null;
     res.redirect('/loggedin.html');
 })
+route.post('/delete', async(req, res) => {
+    let c = req.body.id;
+    await comments.destroy({
+        where: {
+            id: c
+        }
+    })
+    res.send("true");
+})
 module.exports = {
     route
 }

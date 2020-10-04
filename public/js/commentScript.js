@@ -21,6 +21,18 @@ $(() => {
     </div>
     `)
     })
+
+    function btndel() {
+        let delc = $('.delpost');
+        delc.click((event) => {
+            //console.log(event);
+            console.log(event.currentTarget.ariaValueText);
+            $.post("/comments/delete", {
+                id: event.currentTarget.ariaValueText,
+
+            })
+        })
+    }
     $.get('/comments/previous', (data) => {
         console.log(data);
         for (let c of data) {
@@ -34,12 +46,29 @@ $(() => {
           <blockquote class="blockquote mb-0">
             <p>${c.body}</p>
             <footer class="blockquote-footer">written by <cite title="Source Title">${c.user.username}</cite></footer>
+          <button style="border-radius: 40%;" aria-valuetext="${c.id}"  class="delpost btn btn-outline-danger">Delete</button>
+
           </blockquote>
         </div>
       </div>
       <br>
         `)
         }
+        btndel();
     })
 
+    function btndel() {
+        let delc = $('.delpost');
+        delc.click((event) => {
+            //console.log(event);
+            console.log(event.currentTarget.ariaValueText);
+            $.post("/comments/delete", {
+                id: event.currentTarget.ariaValueText,
+
+            }, (a) => {
+                window.alert("COMMENT HAS BEEN DELETED");
+                window.location.reload(false);
+            })
+        })
+    }
 })
