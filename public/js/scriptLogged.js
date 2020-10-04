@@ -11,7 +11,7 @@ $(() => {
     })
     let divAdd = $('#divAdd');
 
-    function addPost(title, body, user) {
+    function addPost(title, body, user, i) {
         divAdd.prepend(`
         
         <div style="display: inline-block; margin: 50px; margin-left: 110px;" class="col-4">
@@ -23,7 +23,7 @@ $(() => {
                         ${body}
 
                     </p>
-                    <a href="#" class="card-link">Comment</a>
+                    <a href="./components/comments.html" aria-valuetext="${i}" class="coma" class="card-link">Comment</a>
                     <a href="#" class="card-link">Like</a>
                 </div>
             </div>
@@ -32,11 +32,28 @@ $(() => {
         `)
     }
 
+    function comment() {
+        let comment = $('.coma');
+
+        comment.click((event) => {
+            console.log(event);
+            console.log(event.currentTarget.ariaValueText);
+            $.post("/comments/orderp", {
+                    postId: event.currentTarget.ariaValueText,
+                    ansh: 5
+                })
+                //console.log(event.code);
+        })
+    }
+
     function addPage() {
         $.get('/posts/getall', (posts) => {
+            let i = 1;
             for (let p of posts) {
-                addPost(p.title, p.body, p.user.username);
+                addPost(p.title, p.body, p.user.username, i);
+                i = i + 1;
             }
+            comment();
         })
     }
 

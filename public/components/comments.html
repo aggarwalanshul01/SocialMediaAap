@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script defer src="../js/commentScript.js"></script>
+</head>
+
+<body>
+    <h1 style="text-align: center; background-color: rgb(255, 166, 0);">COMMENTS</h1>
+    <!-- <form action="/signup" method="post">
+        <input name="username" placeholder="Write username here">
+        <input name="nickname" placeholder="Write nickname here">
+        <input name="password" type="password" placeholder="password">
+        <button type="submit">SUBMIT</button>
+
+    </form> -->
+    <div id="comdiv"></div>
+
+    <br><br>
+
+    <form style="margin-left: 130px; margin-right: 130px; background-color: whitesmoke;" action="/comments/add" method="POST">
+        <div class="form-group">
+            <input name="title" class="form-control" style="border-radius: 20%;" placeholder="Title of the comment">
+
+        </div>
+        <div class="form-group">
+            <input name="bod" class="form-control" style="border-radius: 20%;" placeholder="Body of the comment">
+            <!-- <small id="emailHelp" style="margin-left: 1em;" class="form-text text-muted">We'll never share your username with anyone else.</small> -->
+        </div>
+
+
+        <button type="submit" style="border-radius: 40%;" class="btn btn-outline-secondary">Submit</button>
+    </form>
+    <br><br>
+    <div id="pre"></div>
+</body>
+
+</html>
