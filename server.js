@@ -2,7 +2,13 @@ const express = require('express');
 const session = require('express-session')
 const { db, users } = require('./db/loginTable');
 const app = express();
-
+const http = require('http');
+const server = http.createServer(app);
+const socketio = require('socket.io');
+const io = socketio(server);
+io.on('connection', (socket) => {
+    console.log("connected");
+})
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 app.set('view engine', 'hbs')
@@ -27,9 +33,9 @@ app.use('/comments', route5);
 app.use('/', express.static(__dirname + '/public'));
 db.sync()
     .then(() => {
-        app.listen(4444, (req, res) => {
+        server.listen(4444, (req, res) => {
             console.log("SERVER STARTED ON http://localhost:4444")
         })
-    }).catch(() => {
-        console.error("Error while db.sync");
+    }).catch((err) => {
+        console.error("Error while db.sync" + err);
     })

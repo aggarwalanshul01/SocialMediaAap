@@ -1,15 +1,7 @@
 $(() => {
     //let a = 0;
-    let navbar = $('#i2');
-    $.get('/login/done', (data) => {
-        console.log(data);
-        navbar.append(`
-        <form class="form-inline my-2 my-lg-0" method="GET" action="/profile">
-        <button type="submit" class="btn btn-secondary form-inline my-2 my-lg-0">${data.username}</button>
-        `)
-        addPage();
-    })
-    let divAdd = $('#divAdd');
+    let divAdd = $('#mypDiv');
+
 
     function addPost(title, body, user, i) {
         divAdd.prepend(`
@@ -23,7 +15,7 @@ $(() => {
                         ${body}
 
                     </p>
-                    <a href="./components/comments.html" aria-valuetext="${i}" class="coma" class="card-link">Comment</a>
+                    <a href="./comments.html" aria-valuetext="${i}" class="coma" class="card-link">Comment</a>
                     <a href="#" class="card-link">Like</a>
                 </div>
             </div>
@@ -46,29 +38,15 @@ $(() => {
         })
     }
 
-    function addPage() {
-        $.get('/posts/getall', (posts) => {
-            let i = 1;
-            for (let p of posts) {
-                addPost(p.title, p.body, p.user.username, i);
-                i = i + 1;
-            }
-            comment();
-        })
-    }
 
+    $.get('/posts/getspecific', (posts) => {
 
+        for (let p of posts) {
+            addPost(p.title, p.body, p.user.username, p.id);
 
-
-
-
-
-
-
-
-
-
-
+        }
+        comment();
+    })
 
 
 

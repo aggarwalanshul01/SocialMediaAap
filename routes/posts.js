@@ -16,7 +16,15 @@ route.post('/add', async(req, res) => {
     })
     res.redirect('/loggedin.html');
 })
-
+route.get('/getspecific', async(req, res) => {
+    let p = await posts.findAll({
+        where: {
+            userId: req.session.userId
+        },
+        include: [users]
+    });
+    res.send(p);
+})
 route.get('/getall', async(req, res) => {
     let p = await posts.findAll({
         include: [users]

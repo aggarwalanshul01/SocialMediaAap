@@ -6,8 +6,10 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "http": "0.0.1-security",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5",
+    "socket.io": "^2.3.0",
     "sqlite3": "^5.0.0"
   },
   "devDependencies": {},
